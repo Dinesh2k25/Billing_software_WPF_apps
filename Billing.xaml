@@ -1,0 +1,160 @@
+﻿<Window x:Name="window" x:Class="BS.Billing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BS"
+        mc:Ignorable="d"
+        Title="JP Timber" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" WindowState="Maximized" WindowStartupLocation="CenterScreen" Icon="/1.png" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <StackPanel UseLayoutRounding="False" Margin="10,0,10,10" MinHeight="900" VerticalAlignment="Center">
+        <GroupBox Header="" MinHeight="150" BorderBrush="White">
+            <Grid>
+                <Grid.Background>
+                    <ImageBrush ImageSource="/28.png" Opacity="0.69" Stretch="Uniform"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MaxWidth="200" MinWidth="178"/>
+                    <ColumnDefinition Width="Auto" MaxWidth="200" MinWidth="242"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto" MaxWidth="200" MinWidth="100"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="gb" Grid.Column="3" Content="GenerateBill" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="120" Height="30" TabIndex="1" Click="gb_Click" Margin="0,10,17,10" FontFamily="Arial" FontWeight="Bold">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="ub" Content="Shop Update" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="120" Height="30" TabIndex="2" Click="ub_Click" Margin="50,10,0,10" FontFamily="Arial" FontWeight="Bold">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button x:Name="us" Content="UpdateStock" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Height="30" TabIndex="2" Click="us_Click" Grid.Column="1" Margin="0,10,0,10" FontFamily="Arial" FontWeight="Bold">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="Customerbox" Header="Customer's Info" BorderBrush="#FF4B4B4B" MinHeight="120" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Padding="10,0,0,0">
+            <WrapPanel ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" MinHeight="100">
+                <WrapPanel Width="400" Height="25" Background="White" Margin="2,2,2,2" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <Label x:Name="qw" Content="Name :" FontFamily="Engravers MT" Width="110" Height="25" FontWeight="Bold" HorizontalContentAlignment="Right" Foreground="#FF793939"/>
+                    <TextBox x:Name="CustomerName" TextWrapping="Wrap" Width="280" Height="25" TabIndex="3" VerticalContentAlignment="Center"/>
+                </WrapPanel>
+                <WrapPanel Background="White" Margin="2,2,2,2" MinHeight="25">
+                    <Label Content="GST No. :" FontWeight="Bold" FontFamily="Engravers MT" Height="25" Foreground="#FF793939" Width="150" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="Cgstno" TextWrapping="Wrap" Width="310" HorizontalAlignment="Left" Height="25" TabIndex="4" VerticalContentAlignment="Center"/>
+                </WrapPanel>
+                <WrapPanel Width="400" Height="25" Background="White" Margin="2,2,2,2" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Label Content="Conduct No :" Width="145" FontWeight="Bold" FontFamily="Engravers MT" Height="25" HorizontalContentAlignment="Right" Foreground="#FF793939"/>
+                    <TextBox x:Name="Conductno" TextWrapping="Wrap" Width="250" Height="25" VerticalContentAlignment="Center"/>
+                </WrapPanel>
+                <WrapPanel Width="450" Height="25" Background="White" Margin="2,2,0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Label Content="Address :" Width="145" FontWeight="Bold" FontFamily="Engravers MT" Height="25" HorizontalContentAlignment="Right" Foreground="#FF793939"/>
+                    <TextBox x:Name="Address" TextWrapping="Wrap" Width="305" Height="25" VerticalContentAlignment="Center"/>
+                </WrapPanel>
+                <WrapPanel Width="430" Height="25" Background="White" Margin="2,2,2,2" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Label Content="Mail_ID:" Width="110" FontFamily="Engravers MT" FontWeight="Bold" HorizontalContentAlignment="Right" Foreground="#FF793939" Height="25"/>
+                    <TextBox x:Name="MailId" TextWrapping="Wrap" Width="280" VerticalContentAlignment="Center"/>
+                </WrapPanel>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox x:Name="Product_info" Header="Product's info" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" MinHeight="120" VerticalAlignment="Center" Padding="10,0,0,0" Margin="0,10,0,0">
+            <WrapPanel x:Name="session3">
+                <WrapPanel Width="450" Background="White" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="2,2,2,2">
+                    <Label Content="Product _ID :" Width="140" Height="22" FontFamily="Engravers MT" FontWeight="Bold" IsEnabled="False" Foreground="#FF793939" HorizontalContentAlignment="Right"/>
+                    <TextBox x:Name="ProductID" TextWrapping="Wrap" Width="310" Height="25" MaxHeight="50" VerticalContentAlignment="Center"/>
+                </WrapPanel>
+                <WrapPanel Width="450" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,2">
+                    <Label Content="Goods :" Width="138" Height="22" FontFamily="Engravers MT" FontWeight="Bold" HorizontalContentAlignment="Right" Foreground="#FF793939"/>
+                    <ComboBox x:Name="productlist" Width="312" SelectionChanged="productlist_SelectionChanged" MinHeight="25"/>
+                </WrapPanel>
+                <WrapPanel Background="White" HorizontalAlignment="Center" VerticalAlignment="Center" MaxHeight="50" Margin="5,0,0,0">
+                    <Label Content="Rate" Width="140" Height="22" FontFamily="Engravers MT" FontWeight="Bold" HorizontalContentAlignment="Right" Foreground="#FF793939"/>
+                    <TextBox x:Name="Rate" TextWrapping="Wrap" Width="180" Height="25" VerticalContentAlignment="Center" TextChanged="Rate_TextChanged" PreviewTextInput="Rate_PreviewTextInput"/>
+                </WrapPanel>
+                <WrapPanel Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50" Margin="5,10,0,0">
+                    <Label Content="CQFT" Width="140" Height="22" FontFamily="Engravers MT" FontWeight="Bold" HorizontalContentAlignment="Right" Foreground="#FF793939"/>
+                    <TextBox x:Name="CQFT" TextWrapping="Wrap" Width="150" Height="25" VerticalContentAlignment="Center" TextChanged="CQFT_TextChanged" PreviewTextInput="CQFT_PreviewTextInput"/>
+                </WrapPanel>
+                <WrapPanel Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50" Margin="5,10,0,0">
+                    <Label Content="IGST(%)" Width="140" Height="22" FontFamily="Engravers MT" FontWeight="Bold" HorizontalContentAlignment="Right" Foreground="#FF793939"/>
+                    <TextBox x:Name="txtGST" TextWrapping="Wrap" Width="150" Height="25" VerticalContentAlignment="Center" TextChanged="txtGST_TextChanged" PreviewTextInput="txtGST_PreviewTextInput"/>
+                    <ComboBox x:Name="GST_update" Height="25" Width="60" SelectionChanged="GST_update_SelectionChanged"/>
+                </WrapPanel>
+                <WrapPanel Background="White" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="50" Margin="5,10,0,0">
+                    <Label Content="AMOUNT" Width="140" Height="22" FontFamily="Engravers MT" FontWeight="Bold" MouseDoubleClick="Label_MouseDoubleClick" HorizontalContentAlignment="Right" Foreground="#FF793939" ToolTip="tap to calculate Amount"/>
+                    <TextBox x:Name="Amount1" TextWrapping="Wrap" Width="150" Height="25" VerticalContentAlignment="Center" PreviewTextInput="Amount1_PreviewTextInput"/>
+                </WrapPanel>
+                <Button x:Name="Atc" Content="Add To Cart" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="30" TabIndex="2" Click="Atc_Click" Margin="20,5,0,0" Foreground="Black" Background="#FFE0E0E0" FontWeight="Bold">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+            </WrapPanel>
+        </GroupBox>
+        <GroupBox Header="Ordered GOOD" MinHeight="300">
+            <DataGrid x:Name="selectedorder"
+          AutoGenerateColumns="False"
+          CanUserAddRows="False"
+          Margin="0,10,0,10"
+          ColumnWidth="*"
+          SelectionMode="Single"
+          SelectionUnit="FullRow" MinHeight="230">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ProductID" Binding="{Binding ID}" Width="100"/>
+                    <DataGridTextColumn Header="GOODS" Binding="{Binding Name}" Width="*" MinWidth="50"/>
+
+                    <DataGridTextColumn Header="CFT" Binding="{Binding CQFT}" Width="150 " MinWidth="50"/>
+
+                    <DataGridTextColumn Header="Rate" Binding="{Binding Rate}" Width="150   " MinWidth="50" />
+                    <DataGridTextColumn Header="GST(%)" Binding="{Binding GST}" Width="150   " MinWidth="50" />
+                    
+                    <DataGridTextColumn Header="TotalPrice" Binding="{Binding Amount}" Width="150" MinWidth="50"/>
+
+                    <!-- ✅ Delete Button Column -->
+                    <DataGridTemplateColumn Header="Action" Width="250" MaxWidth="200">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete"
+                            Click="DeleteButton_Click"
+                            Background="Tomato"
+                            Foreground="White"
+                            Padding="4,2"
+                            Tag="{Binding ID}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </GroupBox>
+        <GroupBox x:Name="footerbox" Header="Shopinfo" MinHeight="100" MaxHeight="125" VerticalAlignment="Bottom" UseLayoutRounding="False" Margin="0,10,0,0" VerticalContentAlignment="Bottom">
+            <Grid
+                ShowGridLines="True" Margin="1,1,1,1" MinHeight="100" MaxHeight="120">
+                <Grid.ColumnDefinitions
+    >
+                    <ColumnDefinition
+                        Width="46*"/>
+                    <ColumnDefinition
+                        Width="181*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <Label x:Name="BILLNO" Margin="30,0,0,4" Height="25" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Content="BILLNO" Foreground="#FF793939"/>
+                    <Label x:Name="GSTNO" Margin="30,0,0,4" Height="25" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Content="GSTNUM" Foreground="#FF793939"/>
+                    <Label
+                        Width="180" x:Name="Dateup" Margin="30,0,0,4" Height="25" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Content="DATE"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <Label
+                        Width="200" x:Name="Amount" Margin="50,0,4,4" Height="25" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Content="AMOUNT" Foreground="#FF793939"/>
+                    <Label x:Name="Shopname" Margin="50,0,4,4" Height="25" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Content="GSTvalue"/>
+                    <Label x:Name="Shopaddress" Margin="50,0,4,4" Height="25" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold" FontFamily="Arial Rounded MT Bold" Content="SHOPDT"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </StackPanel>
+</Window>

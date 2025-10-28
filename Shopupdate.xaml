@@ -1,0 +1,53 @@
+﻿<Window x:Class="BS.Shopupdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BS"
+        mc:Ignorable="d"
+        Title="Shopdetails"
+        Height="400" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" Icon="/1.png">
+
+    <Grid Margin="20,0,20,0" Height="383">
+        <StackPanel VerticalAlignment="Center" Height="320">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/1.png" Opacity="0.35">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.5" ScaleY="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </StackPanel.Background>
+            <TextBlock x:Name="txtDate" Text="Shop update"
+                       FontSize="18" FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,10" Foreground="#FF793939"/>
+
+            <TextBox x:Name="txtCompany"  Margin="0,5,0,5" Height="30" ToolTip="Enter Company Name"/>
+            <TextBox x:Name="txtGSTNO"  Margin="0,5,0,5" Height="30" ToolTip="Enter GST Number"/>
+           
+            <TextBox x:Name="txtPhone" Margin="0,5,0,5" Height="30" ToolTip="Enter Phone Number"/>
+            <TextBox x:Name="txtAddress" Margin="0,5,0,5" Height="30" ToolTip="Enter Address"/>
+            <TextBox x:Name="pass"  Margin="0,5,0,5" Height="30" ToolTip="Enter password to update(Admin Only access )"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,15,0,0">
+                <Button Content="Update" Width="100" Margin="5" Click="OkButton_Click" FontWeight="Bold" FontFamily="Arial">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Content="Cancel" Width="100" Margin="5" Click="CancelButton_Click" FontFamily="Arial" FontWeight="Bold">
+                    <Button.Effect>
+                        <DropShadowEffect/>
+                    </Button.Effect>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

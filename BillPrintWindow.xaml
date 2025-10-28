@@ -1,0 +1,21 @@
+﻿<Window x:Class="BS.BillPrintWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BS"
+        mc:Ignorable="d"
+        Title="BillPrintWindow" Height="450" Width="800">
+    <Grid Margin="10">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content="Bill ID:" VerticalAlignment="Center"/>
+                <TextBox x:Name="txtBillID" Width="180" Margin="5,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Generate PDF" Click="BtnGeneratePdf_Click" Width="120"/>
+                <Button Content="Close" Click="BtnClose_Click" Width="80" Margin="8,0,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
